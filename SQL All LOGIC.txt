@@ -1,0 +1,82 @@
+
+create table  st1(         
+s_id numeric(5) primary key, 
+s_name char(5), 
+s_add varchar2(5));
+
+insert  into st1  values (1,'AA','AA1');
+
+select * from  st2 ; 
+
+select e.s_name,f.marks,f.grade from st1 e inner join st2 f on e.s_id=f.s_id;
+
+alter table st2 Add sec varchar2(20);
+
+select e.s_name,f.marks,f.grade from st1 e inner join st2  f on e.s_id=f.s_id where e.s_id=1;
+
+select e.s_name,f.grade from st2 f inner join st1 e on e.s_id=f.s_id where f.marks between 20 and 30;
+
+select e.s_name,f.marks,f.grade from st1 e inner join st2 f on e.s_id=f.s_id where e.s_id  in (1,2,3);
+
+select count (*)from Abhi where A_marks>=(select min(A_marks) from Abhi);
+
+select sum(A_marks) from Abhi;
+
+select * from Abhi where A_marks>(select min(A_marks) from Abhi);
+
+update Abhi set name='AAA'where pid=1;
+
+select name from Abhi where name like'A%'
+
+desc Jha
+
+select * from t1 union select * from t2
+
+select * from t1 minus select * from t2 
+
+select * from t1 intersect select * from t2
+
+select * from Abhishek where A_id='1111' order by A_marks asc
+
+select * from Abhis where A_marks between 30 and 70
+
+select MAX(A_marks)from Abhi
+
+select * from Empl where e1_emplsal>=30000 and e1_emplsal<=50000
+
+select p_name,p_weight from p1
+
+select t.e_name from e1 t inner join e3 f on t.e_id = f.e_id where f.c_name ='c1'
+
+select t.e_sal , f.c_city from e1 t inner join e3 f on t.e_id =f.e_id
+
+select e.s_name,f.c_city,f.c_sal from s1 e inner join c1 f on e.s_id=f.c_id where f. c_sal=(select min (c_sal) from s1)and f.c_name='TCS';
+
+select e.s_name,f.c_city,f.c_sal from s1 e inner join c1 f on e.s_id=f.c_id where f.c_sal>(select avg(c_sal)from c1 where c_name='TCS');
+
+select e.s_name,f.c_city,f.c_sal from s1 e inner join c1 f on e.s_id=f.c_id;
+
+delete from s1 where s_id=5;
+
+select e.s_name,f.c_city,f.c_sal from s1 e right outer join c1 f on s_id =c_id ;
+
+select e.s_name,f.c_city,f.c_sal from s1 e left outer join c1 f on s_id =c_id ;
+
+select e.s_name,f.c_city,f.c_sal from s1 e full outer join c1 f on s_id =c_id ;
+
+select * from s1 cross join c1;
+
+select max( max (c_sal)) from Employee group by c_name
+
+select * from Employee where c_sal in(select max (c_sal) from Employee group by c_name)
+
+select * from Employee where c_sal in(select avg (c_sal) from Employee group by c_name)
+
+select * from Employee where c_sal>(select avg (c_sal) from Employee group by c_name having c_name='Infosys')
+
+select max(c_sal) from Employee group by c_name having c_name='sapient'
+
+
+
+
+
