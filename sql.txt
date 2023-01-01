@@ -1,0 +1,46 @@
+create table Ab(
+A numeric(10),
+B varchar2(20));
+
+insert into Ab values(1,'ABC');
+insert into Ab values(2,'ABC1');
+
+alter table Ab add c  VARCHAR2(20)
+
+update  Ab set c ='c1' where A=1;
+update  Ab  set c ='c2' where A=2;
+
+CREATE or replace procedure p(a in varchar2)
+is 
+begin
+dbms_output.put_line('welcome'||a);
+end p;
+
+
+declare
+
+b  Ab.B%type;
+a Ab%Rowtype;
+d int:=5;
+
+begin
+select B into b from Ab where A=1;
+dbms_output.put_line(b);
+select * into a from Ab where A=1;
+dbms_output.put_line(a.A);
+
+p('Abhishek');
+
+while d!=5 loop
+dbms_output.put_line(d);
+end loop;
+loop
+dbms_output.put_line(d);
+exit when d=6;
+end loop;
+
+for i in 1..10 loop
+dbms_output.put_line(i);
+end loop;
+
+end;
